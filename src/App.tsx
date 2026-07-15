@@ -5,14 +5,18 @@ import DetailModal from './components/DetailModal';
 import QuizQuestion from './components/QuizQuestion';
 import QuizLoading from './components/QuizLoading';
 import QuizReveal from './components/QuizReveal';
+import MatchFlowModal from './components/MatchFlowModal';
+import TraitPicker from './components/TraitPicker';
+import MatchResults from './components/MatchResults';
 import { mushrooms, questions } from './data/mushrooms';
-import { fuzzyMatch } from './utils';
+import { buildTraitGroups, fuzzyMatch } from './utils';
 import { useSoldMushrooms } from './hooks/useSoldMushrooms';
-import type { ConfettiPiece, QuizPhase } from './types';
+import type { ConfettiPiece, Mushroom, QuizPhase, MatchFlowPhase } from './types';
 import './styles/global.css';
 import './styles/gallery.css';
 import './styles/modal.css';
 import './styles/quiz.css';
+import './styles/matchflow.css';
 
 const CONFETTI_COLORS = ['#c4703f', '#6b7d4f', '#e0a83a', '#a15c8c', '#4f8ba7'];
 
@@ -26,6 +30,8 @@ function buildConfetti(): ConfettiPiece[] {
   }));
 }
 
+const TRAIT_GROUPS = buildTraitGroups(mushrooms);
+
 export default function App() {
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -37,8 +43,15 @@ export default function App() {
   const { soldIds, toggleSold } = useSoldMushrooms();
   const loadingTimer = useRef<number | null>(null);
 
+  const [matchFlow, setMatchFlow] = useState<MatchFlowPhase>(null);
+  const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
+  const [matchLoadingPct, setMatchLoadingPct] = useState(0);
+  const [matchResults, setMatchResults] = useState<Mushroom[]>([]);
+  const matchTimer = useRef<number | null>(null);
+
   useEffect(() => () => {
     if (loadingTimer.current) window.clearInterval(loadingTimer.current);
+    if (matchTimer.current) window.clearInterval(matchTimer.current);
   }, []);
 
   const filtered = useMemo(
@@ -106,6 +119,62 @@ export default function App() {
     setLoadingPct(0);
   };
 
+  const openMatchFlow = () => {
+    setMatchFlow('picking');
+    setSelectedTraits([]);
+    setMatchLoadingPct(0);
+    setMatchResults([]);
+  };
+
+  const closeMatchFlow = () => {
+    if (matchTimer.current) window.clearInterval(matchTimer.current);
+    setMatchFlow(null);
+  };
+
+  const toggleTrait = (trait: string) => {
+    setSelectedTraits((prev) =>
+      prev.includes(trait) ? prev.filter((t) => t !== trait) : [...prev, trait]
+    );
+  };
+
+  const beginMatchLoading = () => {
+    if (matchTimer.current) window.clearInterval(matchTimer.current);
+    const start = Date.now();
+    const totalMs = 1800;
+    matchTimer.current = window.setInterval(() => {
+      const elapsed = Date.now() - start;
+      const pct = Math.min(100, Math.round((elapsed / totalMs) * 100));
+      if (pct >= 100) {
+        window.clearInterval(matchTimer.current!);
+        matchTimer.current = null;
+        const scored = mushrooms
+          .filter((m) => !soldIds.includes(m.id))
+          .map((m) => ({ m, count: m.tags.filter((t) => selectedTraits.includes(t)).length }))
+          .filter((x) => x.count > 0)
+          .sort((a, b) => b.count - a.count);
+        setMatchLoadingPct(100);
+        setMatchResults(scored.slice(0, 3).map((x) => x.m));
+        setMatchFlow('results');
+      } else {
+        setMatchLoadingPct(pct);
+      }
+    }, 150);
+  };
+
+  const confirmTraits = () => {
+    if (selectedTraits.length < 3) return;
+    setMatchFlow('loading');
+    setMatchLoadingPct(0);
+    beginMatchLoading();
+  };
+
+  const selectFromResults = (m: Mushroom) => {
+    if (matchTimer.current) window.clearInterval(matchTimer.current);
+    setMatchFlow(null);
+    setSelectedId(m.id);
+    resetQuiz();
+  };
+
   let quizContent = null;
   if (selected) {
     if (phase === 'question') {
@@ -136,7 +205,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <Header query={query} onQueryChange={setQuery} onFindMushroom={() => {}} />
+      <Header query={query} onQueryChange={setQuery} onFindMushroom={openMatchFlow} />
       <MushroomGrid mushrooms={filtered} soldIds={soldIds} onOpen={openCard} />
       {selected && (
         <DetailModal
@@ -148,6 +217,28 @@ export default function App() {
           onStartTest={startTest}
           quizContent={quizContent}
         />
+      )}
+      {matchFlow && (
+        <MatchFlowModal onClose={closeMatchFlow}>
+          {matchFlow === 'picking' && (
+            <TraitPicker
+              traitGroups={TRAIT_GROUPS}
+              selectedTraits={selectedTraits}
+              onToggleTrait={toggleTrait}
+              onConfirm={confirmTraits}
+            />
+          )}
+          {matchFlow === 'loading' && (
+            <QuizLoading
+              title="Identifying personality, calculating..."
+              subtitle="Comparing your traits to every mushroom in the patch"
+              pct={matchLoadingPct}
+            />
+          )}
+          {matchFlow === 'results' && (
+            <MatchResults results={matchResults} selectedTraits={selectedTraits} onSelect={selectFromResults} />
+          )}
+        </MatchFlowModal>
       )}
     </div>
   );
