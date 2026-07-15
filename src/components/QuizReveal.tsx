@@ -1,14 +1,14 @@
-import type { ConfettiPiece } from '../types';
+import type { ConfettiPiece, Mushroom } from '../types';
 
 interface Props {
   matchPct: number;
-  mushroomName: string;
+  mushroom: Mushroom;
   confetti: ConfettiPiece[];
   onRetake: () => void;
   onClose: () => void;
 }
 
-export default function QuizReveal({ matchPct, mushroomName, confetti, onRetake, onClose }: Props) {
+export default function QuizReveal({ matchPct, mushroom, confetti, onRetake, onClose }: Props) {
   return (
     <div className="reveal-phase">
       {confetti.map((c) => (
@@ -21,7 +21,17 @@ export default function QuizReveal({ matchPct, mushroomName, confetti, onRetake,
       <div className="reveal-eyebrow">It's a match!</div>
       <div className="reveal-pct">{matchPct}%</div>
       <div className="reveal-message">
-        You and {mushroomName} are basically the same clay. Friendship: officially founded.
+        You and {mushroom.name} are basically the same clay. Friendship: officially founded.
+      </div>
+      <div className="reveal-mushroom">
+        <img className="reveal-mushroom-image" src={mushroom.image} alt={mushroom.name} />
+        <div className="reveal-mushroom-name">{mushroom.name}</div>
+        <div className="reveal-mushroom-tagline">{mushroom.tagline}</div>
+        <div className="reveal-mushroom-tags">
+          {mushroom.tags.map((tag) => (
+            <span key={tag} className="tag-chip">{tag}</span>
+          ))}
+        </div>
       </div>
       <div className="reveal-actions">
         <button className="secondary-button" onClick={onRetake}>Take Again</button>

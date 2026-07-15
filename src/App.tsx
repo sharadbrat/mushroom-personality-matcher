@@ -194,7 +194,7 @@ export default function App() {
       quizContent = (
         <QuizReveal
           matchPct={matchPct}
-          mushroomName={selected.name}
+          mushroom={selected}
           confetti={confetti}
           onRetake={retakeTest}
           onClose={closeModal}

@@ -7,8 +7,8 @@ interface Props {
 
 export default function MatchFlowModal({ onClose, children }: Props) {
   return (
-    <div className="modal-overlay">
-      <div className="modal-panel modal-panel--narrow">
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-panel modal-panel--narrow" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>✕</button>
         {children}
       </div>

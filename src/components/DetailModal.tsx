@@ -14,8 +14,8 @@ interface Props {
 
 export default function DetailModal({ mushroom, sold, phase, onClose, onToggleSold, onStartTest, quizContent }: Props) {
   return (
-    <div className="modal-overlay">
-      <div className="modal-panel">
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>✕</button>
         {phase === 'detail' && (
           <MushroomDetail mushroom={mushroom} sold={sold} onToggleSold={onToggleSold} onStartTest={onStartTest} />

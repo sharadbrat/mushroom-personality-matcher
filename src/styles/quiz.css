@@ -155,6 +155,45 @@
   z-index: 2;
 }
 
+.reveal-mushroom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.reveal-mushroom-image {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 3px 0 rgba(58, 47, 34, 0.06), 0 8px 20px rgba(58, 47, 34, 0.08);
+}
+
+.reveal-mushroom-name {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #4a3d2a;
+  margin-top: 4px;
+}
+
+.reveal-mushroom-tagline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8a7a63;
+}
+
+.reveal-mushroom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
 .reveal-actions {
   display: flex;
   gap: 14px;
