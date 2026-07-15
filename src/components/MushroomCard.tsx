@@ -9,17 +9,13 @@ interface Props {
 export default function MushroomCard({ mushroom, sold, onOpen }: Props) {
   return (
     <button className="mushroom-card" onClick={() => onOpen(mushroom)}>
-      <div
-        className="mushroom-portrait"
-        style={{ background: mushroom.color, filter: sold ? 'grayscale(0.7)' : 'none' }}
-      >
-        <div className="portrait-label">portrait</div>
-        <div className="portrait-eyes">
-          <div className="portrait-eye" />
-          <div className="portrait-eye" />
-        </div>
-        <div className="portrait-mouth" />
-        <div className="portrait-initials">{mushroom.initials}</div>
+      <div className="mushroom-portrait">
+        <img
+          className="mushroom-portrait-image"
+          src={mushroom.image}
+          alt={mushroom.name}
+          style={{ filter: sold ? 'grayscale(0.7)' : 'none' }}
+        />
         {sold && <div className="sold-badge">Sold</div>}
       </div>
       <div className="mushroom-card-body">

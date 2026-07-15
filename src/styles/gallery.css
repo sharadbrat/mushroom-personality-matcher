@@ -110,53 +110,15 @@
 .mushroom-portrait {
   position: relative;
   aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: #efe6d4;
+  overflow: hidden;
 }
 
-.mushroom-portrait .portrait-label {
-  position: absolute;
-  top: 12px;
-  left: 14px;
-  font-family: ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.75);
-  text-transform: uppercase;
-}
-
-.mushroom-portrait .portrait-eyes {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-  justify-content: center;
-}
-
-.mushroom-portrait .portrait-eye {
-  width: 14px;
-  height: 16px;
-  border-radius: 50%;
-  background: rgba(58, 47, 34, 0.55);
-}
-
-.mushroom-portrait .portrait-mouth {
-  width: 12px;
-  height: 16px;
-  border-radius: 50% 50% 60% 60%;
-  background: rgba(58, 47, 34, 0.4);
-  margin: 8px auto 0;
-}
-
-.mushroom-portrait .portrait-initials {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  font-family: 'Baloo 2', sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  color: rgba(255, 255, 255, 0.5);
+.mushroom-portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .sold-badge {

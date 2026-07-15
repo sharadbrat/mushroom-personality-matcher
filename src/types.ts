@@ -1,11 +1,10 @@
 export interface Mushroom {
   id: string;
   name: string;
-  initials: string;
   tagline: string;
   tags: string[];
   description: string;
-  color: string;
+  image: string;
 }
 
 export interface Question {

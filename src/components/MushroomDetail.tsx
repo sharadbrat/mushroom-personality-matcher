@@ -10,13 +10,13 @@ interface Props {
 export default function MushroomDetail({ mushroom, sold, onToggleSold, onStartTest }: Props) {
   return (
     <div className="detail-layout">
-      <div className="detail-hero" style={{ background: mushroom.color, filter: sold ? 'grayscale(0.7)' : 'none' }}>
-        <div className="portrait-label">portrait</div>
-        <div className="portrait-eyes">
-          <div className="portrait-eye" />
-          <div className="portrait-eye" />
-        </div>
-        <div className="portrait-mouth" />
+      <div className="detail-hero">
+        <img
+          className="detail-hero-image"
+          src={mushroom.image}
+          alt={mushroom.name}
+          style={{ filter: sold ? 'grayscale(0.7)' : 'none' }}
+        />
         {sold && <div className="sold-badge">Sold</div>}
       </div>
       <div className="detail-info">

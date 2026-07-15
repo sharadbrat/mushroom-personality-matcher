@@ -16,7 +16,9 @@ export default function MatchResults({ results, selectedTraits, onSelect }: Prop
           const shared = m.tags.filter((t) => selectedTraits.includes(t)).length;
           return (
             <button key={m.id} className="match-result-card" onClick={() => onSelect(m)}>
-              <div className="match-result-portrait" style={{ background: m.color }} />
+              <div className="match-result-portrait">
+                <img className="match-result-portrait-image" src={m.image} alt={m.name} />
+              </div>
               <div className="match-result-body">
                 <div className="match-result-name">{m.name}</div>
                 <div className="match-result-tagline">{m.tagline}</div>

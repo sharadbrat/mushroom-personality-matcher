@@ -98,9 +98,15 @@
 .match-result-portrait {
   position: relative;
   aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #efe6d4;
+  overflow: hidden;
+}
+
+.match-result-portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .match-result-body {
