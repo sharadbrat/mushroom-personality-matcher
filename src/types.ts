@@ -24,5 +24,8 @@ export type MatchFlowPhase = 'picking' | 'loading' | 'results' | null;
 
 export interface ConfettiPiece {
   id: number;
-  styleStr: string;
+  left: number;
+  color: string;
+  duration: number;
+  delay: number;
 }

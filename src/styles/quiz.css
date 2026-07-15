@@ -1,0 +1,163 @@
+.quiz-phase {
+  padding: 60px 48px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-height: 480px;
+  justify-content: center;
+}
+
+.progress-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.question-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8a7a63;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.question-text {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: #4a3d2a;
+  text-align: center;
+  max-width: 520px;
+  margin: 8px 0 28px;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.question-option {
+  background: #ffffff;
+  border: 2px solid #e6dcc8;
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #4a3d2a;
+  text-align: center;
+}
+
+.question-option:hover {
+  border-color: #6b7d4f;
+  background: #f4f7ee;
+}
+
+.loading-phase {
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  min-height: 480px;
+}
+
+.loading-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #4a3d2a;
+  text-align: center;
+}
+
+.loading-subtitle {
+  font-size: 15px;
+  color: #8a7a63;
+  font-weight: 700;
+}
+
+.loading-bar-track {
+  width: 280px;
+  height: 14px;
+  background: #efe6d4;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: #c4703f;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.loading-pct {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  color: #c4703f;
+}
+
+.reveal-phase {
+  padding: 70px 48px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.reveal-eyebrow {
+  font-size: 15px;
+  font-weight: 800;
+  color: #6b7d4f;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.reveal-pct {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  color: #4a3d2a;
+  animation: popIn 0.5s ease;
+  z-index: 2;
+}
+
+.reveal-message {
+  font-size: 18px;
+  font-weight: 700;
+  color: #5c4f3c;
+  text-align: center;
+  max-width: 460px;
+  z-index: 2;
+}
+
+.reveal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  z-index: 2;
+}
