@@ -2,6 +2,55 @@ import type { Mushroom, Question } from '../types';
 
 const imageModules = import.meta.glob('./images/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
 
+// Assigned by eyeballing each clay mushroom's expression and vibe. Kept to a
+// pool of 30 traits total so trait-matching results stay meaningful.
+const TRAITS: Record<string, [string, string, string]> = {
+  apocap: ['confident', 'playful', 'sassy'],
+  bean: ['cheerful', 'cozy', 'happy'],
+  bitterbutton: ['grumpy', 'sad', 'stubborn'],
+  caleb: ['calm', 'dreamy', 'serene'],
+  chillbert: ['chill', 'confident', 'playful'],
+  churo: ['cozy', 'gentle', 'sleepy'],
+  doomshroom: ['angry', 'grumpy', 'serious'],
+  echo: ['dreamy', 'quiet', 'sad'],
+  faye: ['dreamy', 'gentle', 'sweet'],
+  fern: ['curious', 'quirky', 'sassy'],
+  frustrashroom: ['frustrated', 'grumpy', 'stubborn'],
+  fungary: ['cheerful', 'curious', 'friendly'],
+  grumplet: ['grumpy', 'serious', 'stubborn'],
+  jamie: ['curious', 'friendly', 'happy'],
+  johaness: ['calm', 'gentle', 'sweet'],
+  lennard: ['confident', 'serious', 'stubborn'],
+  lol_nosey: ['mysterious', 'quiet', 'quirky'],
+  lord_giant: ['alert', 'curious', 'nervous'],
+  lorelei: ['calm', 'serene', 'sleepy'],
+  lumen: ['alert', 'mysterious', 'serious'],
+  mark: ['curious', 'playful', 'silly'],
+  moss: ['calm', 'cozy', 'gentle'],
+  mushmello: ['cozy', 'sleepy', 'sweet'],
+  nemo: ['chill', 'dreamy', 'serene'],
+  nosewise: ['alert', 'curious', 'quirky'],
+  nugget: ['calm', 'mysterious', 'quiet'],
+  pesto: ['alert', 'curious', 'gentle'],
+  peter: ['calm', 'gentle', 'sleepy'],
+  pickle: ['curious', 'nervous', 'surprised'],
+  professor_spore: ['calm', 'serious', 'wise'],
+  raven: ['calm', 'gentle', 'serene'],
+  secret: ['cheerful', 'curious', 'playful'],
+  shroopsy: ['energetic', 'quirky', 'silly'],
+  skippy: ['calm', 'chill', 'confident'],
+  sporacle: ['calm', 'mysterious', 'wise'],
+  stroop: ['gentle', 'sleepy', 'sweet'],
+  ted: ['calm', 'confident', 'playful'],
+  teeny_and_tiny: ['energetic', 'friendly', 'playful'],
+  tofu: ['curious', 'friendly', 'gentle'],
+  tove: ['gentle', 'serene', 'sweet'],
+  twix: ['angry', 'grumpy', 'stubborn'],
+  victor: ['calm', 'cozy', 'sweet'],
+  whisper: ['calm', 'quiet', 'serene'],
+  whycelium: ['energetic', 'silly', 'surprised'],
+};
+
 function slugToName(slug: string): string {
   return slug
     .split('_')
@@ -18,7 +67,7 @@ function buildMushrooms(): Mushroom[] {
         id: slug.replace(/_/g, '-'),
         name: slugToName(slug),
         tagline: 'temp',
-        tags: ['temp'],
+        tags: TRAITS[slug] ?? ['temp'],
         description: 'temp',
         image,
       };
