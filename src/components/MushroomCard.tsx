@@ -20,7 +20,6 @@ export default function MushroomCard({ mushroom, sold, onOpen }: Props) {
       </div>
       <div className="mushroom-card-body">
         <div className="mushroom-card-name">{mushroom.name}</div>
-        <div className="mushroom-card-tagline">{mushroom.tagline}</div>
         <div className="mushroom-card-description">{mushroom.description}</div>
         <div className="tag-row">
           {mushroom.tags.map((tag) => (

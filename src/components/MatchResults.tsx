@@ -21,7 +21,6 @@ export default function MatchResults({ results, selectedTraits, onSelect }: Prop
               </div>
               <div className="match-result-body">
                 <div className="match-result-name">{m.name}</div>
-                <div className="match-result-tagline">{m.tagline}</div>
                 <div className="match-result-label">{shared} of {m.tags.length} traits shared</div>
               </div>
             </button>

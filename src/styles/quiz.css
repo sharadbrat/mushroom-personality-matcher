@@ -180,12 +180,6 @@
   margin-top: 4px;
 }
 
-.reveal-mushroom-tagline {
-  font-size: 14px;
-  font-weight: 700;
-  color: #8a7a63;
-}
-
 .reveal-mushroom-tags {
   display: flex;
   flex-wrap: wrap;

@@ -20,10 +20,7 @@ export default function MushroomDetail({ mushroom, sold, onToggleSold, onStartTe
         {sold && <div className="sold-badge">Sold</div>}
       </div>
       <div className="detail-info">
-        <div>
-          <div className="detail-name">{mushroom.name}</div>
-          <div className="detail-tagline">{mushroom.tagline}</div>
-        </div>
+        <div className="detail-name">{mushroom.name}</div>
         <div className="detail-description">{mushroom.description}</div>
         <div className="detail-tags">
           {mushroom.tags.map((tag) => (

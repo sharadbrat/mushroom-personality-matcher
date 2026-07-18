@@ -1,7 +1,6 @@
 export interface Mushroom {
   id: string;
   name: string;
-  tagline: string;
   tags: string[];
   description: string;
   image: string;

@@ -26,7 +26,6 @@ export default function QuizReveal({ matchPct, mushroom, confetti, onRetake, onC
       <div className="reveal-mushroom">
         <img className="reveal-mushroom-image" src={mushroom.image} alt={mushroom.name} />
         <div className="reveal-mushroom-name">{mushroom.name}</div>
-        <div className="reveal-mushroom-tagline">{mushroom.tagline}</div>
         <div className="reveal-mushroom-tags">
           {mushroom.tags.map((tag) => (
             <span key={tag} className="tag-chip">{tag}</span>
