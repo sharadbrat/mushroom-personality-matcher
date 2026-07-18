@@ -1,4 +1,5 @@
 import type { Mushroom } from '../types';
+import { CARD_FOCUS } from '../data/cardFocus';
 
 interface Props {
   mushroom: Mushroom;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export default function MushroomCard({ mushroom, sold, onOpen }: Props) {
+  const focus = CARD_FOCUS[mushroom.id];
   return (
     <button className="mushroom-card" onClick={() => onOpen(mushroom)}>
       <div className="mushroom-portrait">
@@ -14,7 +16,10 @@ export default function MushroomCard({ mushroom, sold, onOpen }: Props) {
           className="mushroom-portrait-image"
           src={mushroom.image}
           alt={mushroom.name}
-          style={{ filter: sold ? 'grayscale(0.7)' : 'none' }}
+          style={{
+            filter: sold ? 'grayscale(0.7)' : 'none',
+            ...(focus && { transform: `scale(${focus.zoom})`, transformOrigin: `${focus.x}% ${focus.y}%` }),
+          }}
         />
         {sold && <div className="sold-badge">Sold</div>}
       </div>
