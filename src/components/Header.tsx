@@ -8,7 +8,7 @@ export default function Header({ query, onQueryChange, onFindMushroom }: Props) 
   return (
     <div className="header-bar">
       <div className="header-title-group">
-        <div className="header-title">Mushroom Personality Matcher</div>
+        <div className="header-title">Shroomarium</div>
         <div className="header-subtitle">Pick a clay friend and take the compatibility test</div>
       </div>
       <div className="header-controls">
