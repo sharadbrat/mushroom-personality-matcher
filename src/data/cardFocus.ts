@@ -1,8 +1,10 @@
-// Every source photo is a 1000x1000 square, so object-fit: cover never crops
-// anything (image and card frame already match). These mushrooms' subjects
-// sit off-center or small within their square photo, so the card looks
-// unbalanced without a manual nudge. Values were derived by measuring each
-// photo's foreground bounding box against its moss background.
+// Almost every source photo is a 1000x1000 square, so object-fit: cover never
+// crops anything on its own (image and card frame already match) - these
+// mushrooms' subjects sit off-center or small within their square photo, so
+// the card looks unbalanced without a manual nudge. Values were derived by
+// measuring each photo's foreground bounding box against its background.
+// (Shroomita's photo is a non-square phone snapshot, so object-position
+// alone - no extra zoom needed - is enough to recenter it.)
 export const CARD_FOCUS: Record<string, { x: number; y: number; zoom: number }> = {
   churo: { x: 50, y: 62, zoom: 1.15 },
   faye: { x: 50, y: 60, zoom: 1.1 },
@@ -17,7 +19,7 @@ export const CARD_FOCUS: Record<string, { x: number; y: number; zoom: number }> 
   pickle: { x: 50, y: 65, zoom: 1.27 },
   raven: { x: 50, y: 64, zoom: 1.26 },
   secret: { x: 50, y: 65, zoom: 1.25 },
-  shroomita: { x: 50, y: 61, zoom: 1.18 },
+  shroomita: { x: 50, y: 43, zoom: 1 },
   'teeny-and-tiny': { x: 50, y: 63, zoom: 1.19 },
   tofu: { x: 65, y: 64, zoom: 1.21 },
   tove: { x: 50, y: 60, zoom: 1.11 },

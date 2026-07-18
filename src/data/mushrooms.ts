@@ -126,9 +126,9 @@ function buildMushrooms(): Mushroom[] {
 export const mushrooms: Mushroom[] = buildMushrooms();
 
 export const questions: Question[] = [
-  { id: 1, text: "What's your perfect vacation?", options: ['A quiet cabin in the woods', 'A bustling city adventure', 'A beach with absolutely nothing to do', 'Backpacking somewhere brand new'] },
-  { id: 2, text: "What's your perfect weekend?", options: ['Curled up with a good book', 'Out with a big group of friends', 'Trying something completely spontaneous', 'Deep-cleaning and organizing everything'] },
-  { id: 3, text: "What's your perfect dinner?", options: ['Home-cooked comfort food', 'A loud, messy group potluck', 'Street food from a food truck', 'A fancy quiet meal for one'] },
+  { id: 1, text: "What's your perfect vacation?", options: ['Cabin', 'City trip', 'Beach', 'Backpacking'] },
+  { id: 2, text: "What's your perfect weekend?", options: ['Reading', 'With friends', 'Spontaneous', 'Cleaning'] },
+  { id: 3, text: "What's your perfect dinner?", options: ['Comfort food', 'Potluck', 'Street food', 'Fancy solo'] },
   { id: 4, text: "What's your favorite marine animal?", options: ['Octopus', 'Dolphin', 'Turtle', 'Jellyfish'] },
-  { id: 5, text: "What's your favorite stone?", options: ['A smooth river pebble', 'A cracked-open geode', 'Solid granite', 'A glowing moonstone'] },
+  { id: 5, text: "What's your favorite colour?", options: ['Morning-brown', 'Screaming pink', 'Mossy green', 'Mushroom'] },
 ];

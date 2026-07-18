@@ -18,6 +18,7 @@ export default function MushroomCard({ mushroom, sold, onOpen }: Props) {
           alt={mushroom.name}
           style={{
             filter: sold ? 'grayscale(0.7)' : 'none',
+            objectPosition: focus ? `${focus.x}% ${focus.y}%` : 'center',
             ...(focus && { transform: `scale(${focus.zoom})`, transformOrigin: `${focus.x}% ${focus.y}%` }),
           }}
         />
