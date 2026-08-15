@@ -190,7 +190,7 @@ export const mushrooms: Mushroom[] = buildMushrooms();
 export const questions: Question[] = [
   { id: 1, text: "What's your perfect vacation?", options: ['Cabin', 'City trip', 'Beach', 'Backpacking'] },
   { id: 2, text: "What's your perfect weekend?", options: ['Reading', 'With friends', 'Spontaneous', 'Cleaning'] },
-  { id: 3, text: "What's your perfect dinner?", options: ['Comfort food', 'Potluck', 'Street food', 'Fancy solo'] },
+  { id: 3, text: "What's your perfect dinner?", options: ['Comfort food', 'Takeout', 'Street food', 'Fancy solo'] },
   { id: 4, text: "What's your favorite marine animal?", options: ['Octopus', 'Dolphin', 'Turtle', 'Jellyfish'] },
   { id: 5, text: "What's your favorite colour?", options: ['Morning-brown', 'Screaming pink', 'Mossy green', 'Mushroom'] },
 ];
