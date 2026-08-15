@@ -28,6 +28,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,webp,png,ico,woff2}'],
+        // Source photos are full-res PNGs (~1.6-2MB each) rather than the old
+        // webp exports, so the 2MiB workbox default leaves near-zero margin.
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
