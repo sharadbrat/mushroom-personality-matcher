@@ -16,3 +16,7 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Content
+
+See [MUSHROOM_CONTENT_GUIDE.md](./MUSHROOM_CONTENT_GUIDE.md) for how to write personality traits, descriptions, and card image framing for a mushroom character.
