@@ -1,14 +1,9 @@
 import type { Mushroom, Question } from '../types';
 
-const imageModules = import.meta.glob('./images/*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModules = import.meta.glob('./images/*.{png,webp}', { eager: true, import: 'default' }) as Record<string, string>;
 
 // Assigned by eyeballing each clay mushroom's expression and vibe. Kept to a
 // pool of 30 traits total so trait-matching results stay meaningful.
-//
-// Retired mushrooms (no current photo) are kept here on purpose - if their
-// clay piece resurfaces, the copy is ready to go. buildMushrooms() only ever
-// creates a card for a slug that has a matching image file, so these entries
-// stay invisible in the app until then.
 const TRAITS: Record<string, [string, string, string]> = {
   antonio: ['confident', 'silly', 'energetic'],
   apocap: ['confident', 'playful', 'sassy'],
@@ -172,7 +167,7 @@ function slugToName(slug: string): string {
 function buildMushrooms(): Mushroom[] {
   return Object.entries(imageModules)
     .map(([path, image]) => {
-      const slug = path.split('/').pop()!.replace(/\.png$/, '');
+      const slug = path.split('/').pop()!.replace(/\.(png|webp)$/, '');
       const base = baseSlug(slug);
       return {
         id: slug.replace(/_/g, '-'),
