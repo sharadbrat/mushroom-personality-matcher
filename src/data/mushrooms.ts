@@ -1,10 +1,50 @@
 import type { Mushroom, Question } from '../types';
 
-const imageModules = import.meta.glob('./images/*.{png,webp}', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModules = import.meta.glob('./images/*.{png,webp,jpeg}', { eager: true, import: 'default' }) as Record<string, string>;
 
 // Assigned by eyeballing each clay mushroom's expression and vibe. Kept to a
 // pool of 30 traits total so trait-matching results stay meaningful.
 const TRAITS: Record<string, [string, string, string]> = {
+  // Newly photographed, not yet named or assigned real traits - placeholders
+  // until someone works through MUSHROOM_CONTENT_GUIDE.md for each one.
+  P01: ['temp', 'temp', 'temp'],
+  P02: ['temp', 'temp', 'temp'],
+  P03: ['temp', 'temp', 'temp'],
+  P04: ['temp', 'temp', 'temp'],
+  P05: ['temp', 'temp', 'temp'],
+  P06: ['temp', 'temp', 'temp'],
+  P07: ['temp', 'temp', 'temp'],
+  P08: ['temp', 'temp', 'temp'],
+  P09: ['temp', 'temp', 'temp'],
+  P10: ['temp', 'temp', 'temp'],
+  P11: ['temp', 'temp', 'temp'],
+  P12: ['temp', 'temp', 'temp'],
+  P13: ['temp', 'temp', 'temp'],
+  P14: ['temp', 'temp', 'temp'],
+  P15: ['temp', 'temp', 'temp'],
+  P16: ['temp', 'temp', 'temp'],
+  P17: ['temp', 'temp', 'temp'],
+  P18: ['temp', 'temp', 'temp'],
+  P19: ['temp', 'temp', 'temp'],
+  P20: ['temp', 'temp', 'temp'],
+  P21: ['temp', 'temp', 'temp'],
+  P22: ['temp', 'temp', 'temp'],
+  P23: ['temp', 'temp', 'temp'],
+  P24: ['temp', 'temp', 'temp'],
+  P25: ['temp', 'temp', 'temp'],
+  P26: ['temp', 'temp', 'temp'],
+  P27: ['temp', 'temp', 'temp'],
+  P28: ['temp', 'temp', 'temp'],
+  P29: ['temp', 'temp', 'temp'],
+  P30: ['temp', 'temp', 'temp'],
+  P31: ['temp', 'temp', 'temp'],
+  P32: ['temp', 'temp', 'temp'],
+  P33: ['temp', 'temp', 'temp'],
+  P34: ['temp', 'temp', 'temp'],
+  P35: ['temp', 'temp', 'temp'],
+  P36: ['temp', 'temp', 'temp'],
+  P37: ['temp', 'temp', 'temp'],
+  P38: ['temp', 'temp', 'temp'],
   antonio: ['confident', 'silly', 'energetic'],
   apocap: ['confident', 'playful', 'sassy'],
   barney_mc_glee: ['sleepy', 'happy', 'cozy'],
@@ -77,6 +117,44 @@ const TRAITS: Record<string, [string, string, string]> = {
 };
 
 const DESCRIPTIONS: Record<string, string> = {
+  P01: 'temp',
+  P02: 'temp',
+  P03: 'temp',
+  P04: 'temp',
+  P05: 'temp',
+  P06: 'temp',
+  P07: 'temp',
+  P08: 'temp',
+  P09: 'temp',
+  P10: 'temp',
+  P11: 'temp',
+  P12: 'temp',
+  P13: 'temp',
+  P14: 'temp',
+  P15: 'temp',
+  P16: 'temp',
+  P17: 'temp',
+  P18: 'temp',
+  P19: 'temp',
+  P20: 'temp',
+  P21: 'temp',
+  P22: 'temp',
+  P23: 'temp',
+  P24: 'temp',
+  P25: 'temp',
+  P26: 'temp',
+  P27: 'temp',
+  P28: 'temp',
+  P29: 'temp',
+  P30: 'temp',
+  P31: 'temp',
+  P32: 'temp',
+  P33: 'temp',
+  P34: 'temp',
+  P35: 'temp',
+  P36: 'temp',
+  P37: 'temp',
+  P38: 'temp',
   antonio: 'Mid-aria, always. The neighbors have opinions.',
   apocap: 'Embrace the chaos. Welcome shroomageddon.',
   barney_mc_glee: 'Half asleep, fully delighted.',
@@ -167,7 +245,7 @@ function slugToName(slug: string): string {
 function buildMushrooms(): Mushroom[] {
   return Object.entries(imageModules)
     .map(([path, image]) => {
-      const slug = path.split('/').pop()!.replace(/\.(png|webp)$/, '');
+      const slug = path.split('/').pop()!.replace(/\.(png|webp|jpeg)$/, '');
       const base = baseSlug(slug);
       return {
         id: slug.replace(/_/g, '-'),
