@@ -4,15 +4,21 @@ Full personality-matching questionnaire and mushroom roster, as of the P01-P38 p
 
 ## 1. The Personality Quiz
 
-Shown per-mushroom in the detail modal ("Take the Personality Test"). Five questions, four options each, purely for flavor/reveal — the quiz always ends on the mushroom you opened.
+Shown per-mushroom in the detail modal ("Take the Personality Test"). A random 5 of the 11-question pool below are drawn fresh each time the quiz starts (`pickQuizQuestions` in `src/utils.ts`) — retaking the test reshuffles again. Four options each, purely for flavor/reveal — the quiz always ends on the mushroom you opened, and the reveal shows a random 85-99% match.
 
 | # | Question | Options |
 |---|---|---|
 | 1 | What's your perfect vacation? | Cabin · City trip · Beach · Backpacking |
 | 2 | What's your perfect weekend? | Reading · With friends · Spontaneous · Cleaning |
-| 3 | What's your perfect dinner? | Comfort food · Takeout · Street food · Fancy solo |
+| 3 | What's your perfect dinner? | Comfort food · Fancy restaurant · Home made · Grilled cheese |
 | 4 | What's your favorite marine animal? | Octopus · Dolphin · Turtle · Jellyfish |
 | 5 | What's your favorite colour? | Morning-brown · Screaming pink · Mossy green · Mushroom |
+| 6 | What is your favorite song? | Justin Bieber - Baby · Drake - Hotline Bling · Nickelback - Photograph · Celine Dion - My Heart Will Go On |
+| 7 | What is your favourite holiday? | Labor day · German unity day · St. Patrick's day · Thursday |
+| 8 | What is your favourite hobby? | Frisbee · Fishing · Watching "The Bachelor" · Brushing teeth |
+| 9 | What is your favourite hat? | Cap · Fancy cap · Funny cap · Cat |
+| 10 | What is your favorite material? | Clay · Dirt · Sand · Mushroom |
+| 11 | What is your birthday? | 1st of January · Spring · Tuesday · None of the above |
 
 ## 2. The "Find My Mushroom" Trait Picker
 

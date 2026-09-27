@@ -228,10 +228,18 @@ function buildMushrooms(): Mushroom[] {
 
 export const mushrooms: Mushroom[] = buildMushrooms();
 
+// Full pool the quiz draws from - a random 5 are picked per session (see
+// pickQuizQuestions in utils.ts), not the same 5 every time.
 export const questions: Question[] = [
   { id: 1, text: "What's your perfect vacation?", options: ['Cabin', 'City trip', 'Beach', 'Backpacking'] },
   { id: 2, text: "What's your perfect weekend?", options: ['Reading', 'With friends', 'Spontaneous', 'Cleaning'] },
   { id: 3, text: "What's your perfect dinner?", options: ['Comfort food', 'Fancy restaurant', 'Home made', 'Grilled cheese'] },
   { id: 4, text: "What's your favorite marine animal?", options: ['Octopus', 'Dolphin', 'Turtle', 'Jellyfish'] },
   { id: 5, text: "What's your favorite colour?", options: ['Morning-brown', 'Screaming pink', 'Mossy green', 'Mushroom'] },
+  { id: 6, text: 'What is your favorite song?', options: ['Justin Bieber - Baby', 'Drake - Hotline Bling', 'Nickelback - Photograph', 'Celine Dion - My Heart Will Go On'] },
+  { id: 7, text: 'What is your favourite holiday?', options: ['Labor day', 'German unity day', 'St. Patrick’s day', 'Thursday'] },
+  { id: 8, text: 'What is your favourite hobby?', options: ['Frisbee', 'Fishing', 'Watching "The Bachelor"', 'Brushing teeth'] },
+  { id: 9, text: 'What is your favourite hat?', options: ['Cap', 'Fancy cap', 'Funny cap', 'Cat'] },
+  { id: 10, text: 'What is your favorite material?', options: ['Clay', 'Dirt', 'Sand', 'Mushroom'] },
+  { id: 11, text: 'What is your birthday?', options: ['1st of January', 'Spring', 'Tuesday', 'None of the above'] },
 ];

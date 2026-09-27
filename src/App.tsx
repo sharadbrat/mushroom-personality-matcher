@@ -9,9 +9,9 @@ import MatchFlowModal from './components/MatchFlowModal';
 import TraitPicker from './components/TraitPicker';
 import MatchResults from './components/MatchResults';
 import { mushrooms, questions } from './data/mushrooms';
-import { buildTraitGroups, fuzzyMatch } from './utils';
+import { buildTraitGroups, fuzzyMatch, pickQuizQuestions } from './utils';
 import { useSoldMushrooms } from './hooks/useSoldMushrooms';
-import type { ConfettiPiece, Mushroom, QuizPhase, MatchFlowPhase } from './types';
+import type { ConfettiPiece, Mushroom, Question, QuizPhase, MatchFlowPhase } from './types';
 import './styles/global.css';
 import './styles/gallery.css';
 import './styles/modal.css';
@@ -37,6 +37,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [phase, setPhase] = useState<QuizPhase>('detail');
   const [qIndex, setQIndex] = useState(0);
+  const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
   const [loadingPct, setLoadingPct] = useState(0);
   const [matchPct, setMatchPct] = useState(0);
   const [confetti, setConfetti] = useState<ConfettiPiece[]>([]);
@@ -79,6 +80,7 @@ export default function App() {
   };
 
   const startTest = () => {
+    setQuizQuestions(pickQuizQuestions(questions, 5));
     setPhase('question');
     setQIndex(0);
   };
@@ -94,7 +96,7 @@ export default function App() {
         window.clearInterval(loadingTimer.current!);
         loadingTimer.current = null;
         setLoadingPct(100);
-        setMatchPct(95 + Math.floor(Math.random() * 5));
+        setMatchPct(85 + Math.floor(Math.random() * 15));
         setConfetti(buildConfetti());
         setPhase('reveal');
       } else {
@@ -104,7 +106,7 @@ export default function App() {
   };
 
   const answerQuestion = () => {
-    if (qIndex + 1 >= questions.length) {
+    if (qIndex + 1 >= quizQuestions.length) {
       setPhase('loading');
       setLoadingPct(0);
       beginLoading();
@@ -114,6 +116,7 @@ export default function App() {
   };
 
   const retakeTest = () => {
+    setQuizQuestions(pickQuizQuestions(questions, 5));
     setPhase('question');
     setQIndex(0);
     setLoadingPct(0);
@@ -180,9 +183,9 @@ export default function App() {
     if (phase === 'question') {
       quizContent = (
         <QuizQuestion
-          question={questions[qIndex]}
+          question={quizQuestions[qIndex]}
           questionNumber={qIndex + 1}
-          questionTotal={questions.length}
+          questionTotal={quizQuestions.length}
           onAnswer={answerQuestion}
         />
       );
