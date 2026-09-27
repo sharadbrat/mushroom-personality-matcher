@@ -33,7 +33,7 @@ The other entry point ("Not sure? Find my mushroom") shows every trait in use, g
 
 30 traits total, fixed pool — every mushroom (new or old) draws its 3 tags from this list only, so match results stay meaningful across the whole roster.
 
-## 3. Live Mushroom Roster (114 named cards)
+## 3. Live Mushroom Roster (115 named cards)
 
 Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo set or the P01-P38 batch · **Refreshed** = same character, new single photo, description/traits unchanged · **Multi-piece** = multiple clay pieces sharing one name/description/traits (all cards say e.g. "Fungary", ids differ: `fungary-1` / `fungary-2` / ...) · **Restored** = older `.webp` photo brought back after being temporarily hidden by the photo-set sync; description/traits unchanged.
 
@@ -46,6 +46,7 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Billy | New | nervous · quiet · sad | Assumes the worst. Usually right. |
 | Bitterbutton ×3 | Multi-piece | grumpy · sad · stubborn | Your tiny rage manager for everyday frustrations. |
 | Caleb | Restored | calm · dreamy · serene | Off in his own galaxy. Send snacks. |
+| Camille | New | curious · gentle · quirky | One eye says curious. The other says something else entirely. |
 | Carrie | New | nervous · quirky · surprised | Always mid double-take. |
 | Catshroom | New | playful · curious · quirky | Not a cat. Acts like one anyway. |
 | Chancelina | New | serene · calm · dreamy | Elegant, aloof, unbothered by the moss. |
@@ -132,7 +133,7 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Whycelium ×2 | Multi-piece | energetic · silly · surprised | So what? Who cares? Whatever. Take Whycelium home, he handles all the nonsense. |
 | Winnie | New | cheerful · gentle · sweet | Blushes at everything. Means it every time. |
 
-**Tally:** 46 new · 5 refreshed · 11 multi-piece characters (33 cards) · 30 restored = 114 cards.
+**Tally:** 47 new · 5 refreshed · 11 multi-piece characters (33 cards) · 30 restored = 115 cards.
 
 ## 4. P01-P38 batch, resolved
 
