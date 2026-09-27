@@ -1,6 +1,6 @@
 # Shroomarium Content Reference
 
-Full personality-matching questionnaire and mushroom roster, as of the P01-P38 photo batch, its naming pass, and trait/description assignment (2026-09-26). Source of truth is `src/data/mushrooms.ts` and `src/utils.ts` — this file is a human-readable snapshot of that data.
+Full personality-matching questionnaire and mushroom roster, as of the P01-P38 photo batch being fully resolved (2026-09-27). Source of truth is `src/data/mushrooms.ts` and `src/utils.ts` — this file is a human-readable snapshot of that data.
 
 ## 1. The Personality Quiz
 
@@ -27,7 +27,7 @@ The other entry point ("Not sure? Find my mushroom") shows every trait in use, g
 
 30 traits total, fixed pool — every mushroom (new or old) draws its 3 tags from this list only, so match results stay meaningful across the whole roster.
 
-## 3. Live Mushroom Roster (107 named cards)
+## 3. Live Mushroom Roster (114 named cards)
 
 Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo set or the P01-P38 batch · **Refreshed** = same character, new single photo, description/traits unchanged · **Multi-piece** = multiple clay pieces sharing one name/description/traits (all cards say e.g. "Fungary", ids differ: `fungary-1` / `fungary-2` / ...) · **Restored** = older `.webp` photo brought back after being temporarily hidden by the photo-set sync; description/traits unchanged.
 
@@ -37,6 +37,7 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Apocap | Refreshed | confident · playful · sassy | Embrace the chaos. Welcome shroomageddon. |
 | Barney Mc Glee | New | sleepy · happy · cozy | Half asleep, fully delighted. |
 | Bean | Restored | cheerful · cozy · happy | Perpetually pleased. Ask him why, he won't know. |
+| Billy | New | nervous · quiet · sad | Assumes the worst. Usually right. |
 | Bitterbutton ×3 | Multi-piece | grumpy · sad · stubborn | Your tiny rage manager for everyday frustrations. |
 | Caleb | Restored | calm · dreamy · serene | Off in his own galaxy. Send snacks. |
 | Carrie | New | nervous · quirky · surprised | Always mid double-take. |
@@ -51,6 +52,8 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Doomshroom | Refreshed | angry · grumpy · serious | When life gives lemons, he throws them back screaming. |
 | Echo | Restored | dreamy · quiet · sad | Feels everything, says nothing. |
 | Eligiah | New | surprised · alert · curious | Wide-eyed about literally everything. |
+| Eric | New | nervous · quirky · silly | That mouth again. Never a good sign. |
+| Eternity | New | calm · serene · wise | Closed her eyes once. Hasn't opened them since. |
 | Faye | Restored | dreamy · gentle · sweet | Made of stardust and soft feelings. |
 | Fern | Restored | curious · quirky · sassy | Knows something you don't. |
 | Ferris | New | confident · playful · cheerful | Skipping today. Skipping every day. |
@@ -58,13 +61,16 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Fungary ×3 | Multi-piece | cheerful · curious · friendly | I'm fine, I'm fine. |
 | Garlic | New | alert · nervous · quirky | Keeps vampires and small talk away. |
 | Grumplet ×4 | Multi-piece | grumpy · serious · stubborn | He judges the world so you can relax. Just let him speak to the manager. |
+| Heaven | New | alert · mysterious · quirky | Cracked, spotted, faraway. Not from around here. |
 | Hero | New | alert · curious · sweet | Hero, in name only. Still scared of the dark. |
 | Honey | New | curious · gentle · sweet | Sweet as the name promises. Slightly nosy about it. |
 | Infinity | New | calm · quirky · sleepy | Covered in dots. Counting them put her to sleep. |
 | Jamie | Restored | curious · friendly · happy | Everyone's favorite new best friend. |
 | Jimothy | New | serious · stubborn · calm | Not impressed. Rarely is. |
 | Johaness | Restored | calm · gentle · sweet | Quietly the nicest one here. |
+| Kyle | New | cheerful · happy · silly | Grinning. No particular reason. |
 | Lennard | Restored | confident · serious · stubborn | Not asking twice. |
+| Leto | New | confident · gentle · sassy | One eyebrow up. Permanently unconvinced. |
 | Lil Nosey | Restored | mysterious · quiet · quirky | He's lowkey low key. |
 | Loopy Shroopy | New | playful · quirky · silly | Tongue out, eyes everywhere. Physically incapable of a serious photo. |
 | Lord Giant | Restored | alert · curious · nervous | Big name. Bigger worries. |
@@ -73,6 +79,7 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Lumen | Restored | alert · mysterious · serious | Watching. Always watching. |
 | Mabel | New | alert · mysterious · nervous | Knows something. Isn't saying what. |
 | Mark | Restored | curious · playful · silly | Found a ladybug. Life complete. |
+| Maxie | New | curious · silly · surprised | Didn't see that coming. Never does. |
 | Moss | Restored | calm · cozy · gentle | Settled in. Never leaving. |
 | Mushmello ×2 | Multi-piece | cozy · sleepy · sweet | The one that keeps the nicest, sweetest dreams. The rest can burn. |
 | Nemo | Restored | chill · dreamy · serene | Found Nemo. He wasn't lost, just chilling. |
@@ -119,12 +126,8 @@ Legend: **New** = brand-new character, first appearance in the 2026-08-15 photo 
 | Whycelium ×2 | Multi-piece | energetic · silly · surprised | So what? Who cares? Whatever. Take Whycelium home, he handles all the nonsense. |
 | Winnie | New | cheerful · gentle · sweet | Blushes at everything. Means it every time. |
 
-**Tally:** 39 new · 5 refreshed · 11 multi-piece characters (33 cards) · 30 restored = 107 cards.
+**Tally:** 46 new · 5 refreshed · 11 multi-piece characters (33 cards) · 30 restored = 114 cards.
 
-## 4. Pending / Unnamed Roster (8 cards)
+## 4. P01-P38 batch, resolved
 
-38 raw phone photos came in as one batch and were provisionally named `P01`-`P38` with `'temp'` placeholder traits/description. 30 have since been identified and fully written up (folded into section 3 above): 12 as more pieces of existing characters (`_N` files on the matching slug, e.g. `P01`/`P04` → `shroopsy_3`/`shroopsy_4`), 2 as a second piece of an existing single-photo character (`P13` → `louis_2`, `P14` → `whycelium_2`), and 16 as brand-new characters given a real name, traits, and description per `MUSHROOM_CONTENT_GUIDE.md` (e.g. `P05` → `hero`). The remaining 8 are still waiting on all three.
-
-| Slug | Traits | Description |
-|---|---|---|
-| P29, P30, P31, P33, P34, P35, P36, P38 | temp · temp · temp | temp |
+The 38 raw phone photos provisionally named `P01`-`P38` have all been sorted: 12 turned out to be more pieces of existing characters (`_N` files on the matching slug, e.g. `P01`/`P04` → `shroopsy_3`/`shroopsy_4`), 2 were a second piece of an existing single-photo character (`P13` → `louis_2`, `P14` → `whycelium_2`), 23 were brand-new characters given a real name, traits, and description per `MUSHROOM_CONTENT_GUIDE.md` (e.g. `P05` → `hero`), and 1 (`P38`) was a duplicate photo of `P34`/`heaven` from a different angle and was deleted. All resolved photos are folded into section 3 above; no photos from the batch remain unidentified.
